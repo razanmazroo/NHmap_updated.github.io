@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Neighborhood Map of Riyadh - The Capital of Saudi Arabia</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+	<!-- Custom CSS  -->
+	<link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+	<div id="wrapper" class="flex-container">
+		<!-- Sidebar -->
+		<aside id="sidebar-wrapper">
+			<input class="input-style" type="text" placeholder="Search" data-bind="textInput: filter, valueUpdate: 'afterkeydown'">
+			<div>
+				<!-- listed locations item -->
+				<ul class="sidebar-nav" data-bind="foreach: filterdItems">
+					<li>
+						<a href="#" data-bind="text: title, click: itemClicked"></a>
+					</li>
+				</ul>
+				<!-- /#listed locations item -->
+			</div>
+			<!-- Weather template -->
+			<div class="weather">
+				<div class="weather-header">Weather in Riyadh</div>
+				<div data-bind="text: weather_date" class="weather_date">DATE</div>
+				<div class="weather_temp">
+					<div data-bind="text: weather_temp_min" class="weather_temp_min">MIN</div>
+					<div data-bind="text: weather_temp_max" class="weather_temp_max">MAX</div>
+				</div>
+				<img data-bind="attr:{src: url}" class="weather_icon">
+				<div data-bind="text: weather_text" class="weather_text"></div>
+			</div>
+			<!-- /#Weather template -->
+		</aside>
+		<!-- /#sidebar -->
+		<!-- toggle icon -->
+		<div id = "toggleContainer" class="toggleContainer" data-bind="click: toggleClick" >
+			<div class="line1"></div>
+			<div class="line2"></div>
+			<div class="line3"></div>
+		</div>
+		<!-- /#toggle icon -->
+		<!-- Page Content -->
+		<section id="page-content-wrapper">
+			<div id="map-canvas">If you can read this, there has been an error loading Google Maps. Please Try Again.</div>
+		</section>
+		<!-- /#page-content-wrapper -->
+	</div>
+	<!-- /#wrapper -->
+	<!-- JS files -->
+	<!-- jQuery -->
+	<script src='js/jquery-1.12.0.min.js'></script>
+	<!-- Menu Toggle Script -->	
+	<!-- Knockout framework JavaScript -->
+	<script src='js/knockout-3.4.0.js'></script>
+	<!-- main app JavaScript -->
+	<script src='js/app.js'></script>
+	<!-- Google Map API call Script -->
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7heWyt3rEYGBscQjAuyH4z-UWhiKcoeE&callback=startMap&libraries=places" onerror="MapErrorHandler()"></script>
+</body>
+
+</html>
